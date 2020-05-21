@@ -1,0 +1,35 @@
+body {
+    font-family: 'Montserrat';
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.header {
+    padding: 52px 0;
+}
+.nav {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+    text-decoration: none;
+    color: #E7B6CF;
+    margin-right: 59px;
+}
+.nav-item__black {
+    color: #000000;
+    border-bottom: 5px dashed #E7B6CF;
+    margin-right: 0;
+    margin-left: 59px;
+}

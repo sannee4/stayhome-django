@@ -1,0 +1,28 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 350px;
+}
+.error__desc {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+    color: #E7B6CF;
+}
+.error__status {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+    color: #E7B6CF;
+}
+.error {
+    font-weight: bold;
+    font-size: 150px;
+    line-height: 183px;
+    letter-spacing: 0.04em;
+    color: #E2A7BC;
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+
+        <div class="saved">
+            <div class="saved-content">
+                {% for data in object_list %}
+                    <div class="post post_news">
+                        <div class="post-header">
+                            <a class="post__title" href="/profile?user_id={{ data.post.author_id }}">{{ data.post.author.username }}</a>
+                            <span class="post__category">{{ data.post.category }}</span>
+                        </div>
+                        <div class="post__content">
+                            <p class="post__content-text">{{ data.post.content|truncatechars:100 }} <a href="/news/{{ data.post.pk }}"
+                                                                                                  class="post__link">Читать далее...</a></p>
+                            {% if data.post.article_image  %}
+                                <div class="post__content-image" style="background-image: url({{  data.post.article_image.url }})"></div>
+                            {% endif %}
+                        </div>
+                        <div class="post__tags">
+                                {% for tag in data.post.tags.all %}
+                                    <span class="post__tag">
+                                        #{{ tag }}
+                                    </span>
+                                {% endfor %}
+                        </div>
+                        <time class="post__date">{{ data.post.created_date|date:"H:i / M d, Y" }}</time>
+                    </div>
+                {% endfor %}
+                {% if page_obj.has_previous %}
+                    <a class="btn btn_news" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <a class="btn" href="?page={{ page_obj.next_page_number }}">Next</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

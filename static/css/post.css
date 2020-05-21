@@ -1,0 +1,103 @@
+.post {
+    width: 593px;
+    padding: 20px 37px;
+    border: 1px solid #E2A7BC;
+    box-sizing: border-box;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.post:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+.post__title {
+    margin-bottom: 28px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 21px;
+    color: #000000;
+    margin-right: 10px;
+}
+.post__content {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+.post__content-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 21px;
+    max-width: 312px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+.post__date {
+    text-align: right;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+
+}
+.image-input-wrap {
+    display: flex;
+    justify-content: center;
+}
+.form-panel__body-item:not(:last-child) {
+    margin-bottom: 61px !important;
+}
+textarea {
+    font-family: 'Montserrat';
+    letter-spacing: 1px;
+    border: 1px solid #E7B6CF !important;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background: #fff !important;
+    min-height: 182px;
+}
+.profile-posts__posts {
+    margin-bottom: 79px;
+}
+.post__content-image {
+    width: 181px;
+    height: 223px;
+    border-radius: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.post-header {
+    display: flex;
+    align-items: baseline;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 21px;
+
+    color: #A9A8A8;
+}
+.post__tags {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.post__tag {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #E2A7BC;
+}
+.post__tag:not(:last-of-type) {
+    margin-right: 11px;
+}
+.post__link {
+    margin-left: 15px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 21px;
+    max-width: 312px;
+    color: #E2A7BC;
+}

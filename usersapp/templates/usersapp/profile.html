@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="profile">
+    <div class="container">
+        <div class="profile-info">
+            <div class="profile-info__avatar-wrap">
+                <div class="profile-info__avatar" style="background-image: url('{% if usr.userprofile.image  %}{{ usr.userprofile.image.url }}{% else %}{% static 'img/avatar_placeholder.jpg' %} {% endif %}')"></div>
+                <form class="profile-info__avatar-form" enctype="multipart/form-data" action="/profile/" method="post">
+                    {% csrf_token %}
+                    {% if own %}
+                    <div class="profile-form__file-input-wrap">
+                        {{ form.image }}
+                        <label class="profile-form__file-input-icon" for="profile-form__file-input">
+
+                        </label>
+                    </div>
+                    <span class="profile-info__avatar-btn">add/change</span>
+                    {% endif %}
+                </form>
+
+            </div>
+            <div class="profile-info__info">
+                <div class="profile-info__info-data profile-info__info-data_username">
+                    username: {{ usr.username }}
+                </div>
+                <div class="profile-info__info-data">
+                    post: {{ posts_count }}
+                </div>
+                {% if own %}
+                    <a href="/saved" class="profile-info__saved">View Saved Posts</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="profile-posts">
+            {% if own %}
+                <a class="btn profile-posts__create-btn" href="/create">Create Post</a>
+            {% endif %}
+            <div class="profile-posts__posts">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="post-header">
+                            <a class="post__title" href="/news/{{ post.pk }}">{{ post.title }}</a>
+                            <span class="post__category">{{ post.category }}</span>
+                        </div>
+                        <div class="post__content">
+                            <p class="post__content-text">{{ post.content|truncatechars:100 }}</p>
+                            {% if post.article_image  %}
+                                <div class="post__content-image" style="background-image: url({{  post.article_image.url }})"></div>
+                            {% endif %}
+                        </div>
+                        <div class="post__tags">
+                            {% for tag in post.tags.all %}
+                                <span class="post__tag">
+                                    #{{ tag }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                        <time class="post__date">{{ post.created_date|date:"H:i / M d, Y" }}</time>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if posts.has_previous %}
+                <a class="btn" href="?page={{ posts.previous_page_number }}">Previous</a>
+            {% endif %}
+            {% if posts.has_next %}
+                <a class="btn" href="?page={{ posts.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

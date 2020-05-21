@@ -1,0 +1,7 @@
+.saved {
+    display: flex;
+    justify-content: center;
+}
+.saved-content {
+    justify-self: center;
+}

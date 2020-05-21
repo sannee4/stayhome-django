@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="page-index__content">
+        <h1 class="page-index__title">Stay Home - общайся не выходя из дома</h1>
+        <p class="page-index__subtitle">Делись своими впечатлениями с друзьями</p>
+        {% if not user.is_authenticated %}
+            <div class="buttons">
+                <a class="btn" href="/register">Sign Up</a>
+                <a class="btn btn_outline" href="/login">Sign In</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

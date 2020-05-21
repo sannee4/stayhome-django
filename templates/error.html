@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="error-page">
+            <h1 class="error">{{ title }}</h1>
+            <span class="error__status">
+                {{ status }}
+            </span>
+            <span class="error__desc">
+                {{ description }}
+            </span>
+        </div>
+    </div>
+{% endblock %}

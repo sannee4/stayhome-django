@@ -1,0 +1,1 @@
+web: gunicorn stayhome.wsgi --log-file -

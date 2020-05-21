@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="about">
+        <ul class="about__steps about__left">
+            <li class="about__step about__step_number_1">
+                <span class="about__step-number">1</span>
+                <p class="about__step-desc">Сидеть дома не так одиноко, когда знаешь, что ты такой не один</p>
+            </li>
+        </ul>
+        <img src="{% static "/svg/elipse.svg" %}" alt="" class="about__steps-image about__center">
+        <ul class="about__steps about__right">
+            <li class="about__step about__step_number_2">
+                <span class="about__step-number">2</span>
+                <p class="about__step-desc">Если не знаешь, чем заняться на карантине, то другие люди уже это придумали!</p>
+            </li>
+            <li class="about__step about__step_number_3">
+                <span class="about__step-number">3</span>
+                <p class="about__step-desc">Рассказывай о том, как у тебя едет кукуха, тебя все поймут</p>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

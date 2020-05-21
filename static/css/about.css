@@ -1,0 +1,40 @@
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 783px;
+}
+.about__steps-image {}
+.about__left .about__step {
+    margin-right: 88px;
+}
+.about__right .about__step {
+    margin-left: 88px;
+}
+.about__right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about__step {
+    width: 480px;
+    display: flex;
+    flex-shrink: 1;
+    align-items: center;
+}
+.about__step-number {
+    margin-right: 20px;
+    font-size: 150px;
+    color: #FFE6F3;
+    font-weight: 600;
+}
+.about__step-desc {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: #000000;
+}

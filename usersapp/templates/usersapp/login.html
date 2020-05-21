@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+       <div class="container">
+        <form
+{#                action="{% url 'usersapp:register' %}"#}
+                method="post">
+            {% csrf_token %}
+                <div class="form-panel">
+                    <header class="form-panel__header">
+                        <h1 class="form-panel__title">Sign In</h1>
+                        <p class="form-panel__subtitle">Войдите в аккаунт, чтобы общаться с друзьями</p>
+                    </header>
+                    <div class="form-panel__body">
+                        {% if error_message %}
+                            <p class="form-panel__error">{{ error_message }}</p>
+                        {% endif %}
+                        {{ form.username }}
+                        {{ form.password }}
+                        <div class="btn-wrapper">
+                            <input type="submit" value="Login" class="btn btn-success">
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="full-post">
+              <div class="post-header post-header_full">
+                  <a class="post__title" href="/profile?user_id={{ object.author_id }}">{{ object.author.username }}</a>
+                  <span class="post__category">{{ object.category }}</span>
+              </div>
+              <span>Просмотров: {{ views_count }}</span>
+              <span>Лайков: {{ likes_count }}</span>
+            {% if user.is_authenticated %}
+                <a href="/save/{{ object.pk }}" class="full-post__save"></a>
+            {% endif %}
+            <div class="full-post__content">
+                <p class="full-post__text">{{ object.content }}</p>
+                {% if object.article_image %}
+                    <div class="full-post__image" style="background-image: url({{ object.article_image.url }})"></div>
+                {% endif %}
+            </div>
+            <div class="full-post__tags">
+                {% for tag in object.tags.all %}
+                    <span class="full-post__tag post__tag">
+                        #{{ tag }}
+                    </span>
+                {% endfor %}
+            </div>
+            <time class="full-post__date post__date">{{ object.created_date|date:"H:i / M d, Y" }}</time>
+            {% if user.is_authenticated %}
+                {% if has_liked %}
+                    <span>You liked this post</span>
+                {% else %}
+                    <a href="/like/{{ object.pk }}">Like this post</a>
+                {% endif %}
+            {% endif %}
+            <a href="/news" class="btn btn_back">Back</a>
+
+        </div>
+        <div class="full-comments">
+            <form class="full-comments__form" action="/news/{{ object.pk }}/comment" method="post">
+                {{ form.content }}
+                {% csrf_token %}
+                <input class="btn"  type="submit">
+            </form>
+            <div class="comments">
+                {% for comment in comments.all %}
+                    <div class="comment">
+                        <a class="comment__author" href="/profile?user_id={{ comment.author.pk }}">{{ comment.author.username }}</a>
+                        <p class="comment__content">{{ comment.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

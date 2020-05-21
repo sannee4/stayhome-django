@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <input type="text" class="search__input" placeholder="Search...">
+        <div class="posts">
+        {% for post in posts %}
+            <div class="post post_news">
+                <div class="post-header">
+                    <a class="post__title" href="/profile?user_id={{ post.author_id }}">{{ post.author.username }}</a>
+                    <span class="post__category">{{ post.category }}</span>
+                </div>
+                <div class="post__content">
+                    <p class="post__content-text">{{ post.content|truncatechars:100 }} <a href="/news/{{ post.pk }}"
+                                                                                          class="post__link">Читать далее...</a></p>
+                    {% if post.article_image  %}
+                        <div class="post__content-image" style="background-image: url({{  post.article_image.url }})"></div>
+                    {% endif %}
+                </div>
+                <div class="post__tags">
+                        {% for tag in post.tags.all %}
+                            <span class="post__tag">
+                                #{{ tag }}
+                            </span>
+                        {% endfor %}
+                </div>
+                <time class="post__date">{{ post.created_date|date:"H:i / M d, Y" }}</time>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

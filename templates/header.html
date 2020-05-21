@@ -1,0 +1,25 @@
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <div class="nav-start">
+                <a class="nav-item" href="/">Home</a>
+                <a class="nav-item" href="/news">News</a>
+                <a class="nav-item" href="/search">Search</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-item" href="/profile">Profile</a>
+                    <a class="nav-item" href="/create">Create</a>
+                {% endif %}
+                <a class="nav-item" href="/api">API</a>
+                <a class="nav-item" href="/api/swagger">Doc(Swagger)</a>
+            </div>
+            <div class="nav-end">
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-item__black" href="/logout">Log out</a>
+                {% else %}
+                    <a class="nav-item nav-item__black" href="/login">Sign In</a>
+                    <a class="nav-item nav-item__black" href="/register">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+</header>

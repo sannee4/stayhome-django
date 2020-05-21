@@ -1,0 +1,83 @@
+.profile-info {
+    display: flex;
+    margin-bottom: 87px;
+}
+.profile-info__avatar-wrap {
+    position: relative;
+    width: 430px;
+    margin-right: 45px;
+}
+.profile-info__avatar {
+    position: relative;
+    width: 293px;
+    height: 293px;
+    border-radius: 50%;
+    background-size: cover;
+    box-sizing: border-box;
+}
+.profile-info__avatar-form {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 13px;
+    right: 0;
+    flex-wrap: nowrap;
+}
+
+.profile-info__avatar-btn {
+    text-decoration: none;
+    outline: none;
+    background: transparent;
+    border: none;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+.profile-form__file-input {
+    display: none;
+}
+.profile-form__file-input-icon {
+    background-image: url("../img/add_photo_btn.png");
+    width: 63px;
+    height: 63px;
+    display: block;
+    cursor: pointer;
+}
+
+
+.profile-form__file-input-wrap {
+    margin-right: 15px;
+}
+.profile {
+    margin-top: 68px;
+    background-image: url("../img/profile_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 674px 676px;
+}
+.profile-info__info {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 37px;
+}
+.profile-info__info-data:not(:last-of-type) {
+    margin-bottom: 29px;
+}
+.profile-posts__create-btn {
+    margin-bottom: 67px;
+}
+
+.profile-posts__create-btn {
+    cursor: pointer;
+    text-decoration: none;
+}
+.profile-info__saved {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 37px;
+    color: #E2A7BC;
+}

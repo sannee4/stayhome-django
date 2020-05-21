@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="create-post">
+            <form method="post" class="create-post__form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-panel">
+                    <header class="form-panel__header">
+                        <h1 class="form-panel__title">Create post</h1>
+                    </header>
+                    <div class="form-panel__body">
+                        {% if error_message %}
+                            <p class="form-panel__error">{{ error_message }}</p>
+                        {% endif %}
+                        {{ form.title }}
+                        {{ form.content }}
+                        {{ form.category }}
+                        {{ form.tags }}
+                        <div class="profile-form__file-input-wrap form-panel__body-item image-input-wrap">
+                            {{ form.article_image }}
+                            <label class="profile-form__file-input-icon" for="profile-form__file-input">
+
+                            </label>
+                            <span class="profile-info__avatar-btn">add/change</span>
+                        </div>
+                        <div class="btn-wrapper">
+                            <input type="submit" value="Опублковать" class="btn form-panel__body-item">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
